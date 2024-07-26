@@ -1,6 +1,7 @@
 package calculator;
 
-public class SubtractOperator {
+public class SubtractOperator implements Operator {
+    @Override
     public double operate(int n1, int n2) {
         return n1 - n2;
     }
