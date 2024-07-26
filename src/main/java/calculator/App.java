@@ -2,6 +2,7 @@ package calculator;
 
 import java.util.*;
 public class App {
+    Calculator calculator = new Calculator();
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         List<Integer> resArr = new ArrayList<>();
@@ -17,18 +18,7 @@ public class App {
 
             char operator = sc.next().charAt(0);
 
-            int result = 0;
-            if (operator == '+') {
-                result = num1 + num2;
-            } else if (operator == '-') {
-                result = num1 - num2;
-            } else if (operator == '*') {
-                result = num1 * num2;
-            } else if (operator == '/') {
-                result = num1 / num2;
-            }
-
-
+            double result = calculator.calculate(num1, num2, operator)
             resArr.add(result);
 
 
