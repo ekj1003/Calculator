@@ -1,16 +1,26 @@
 package calculator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Calculator {
-    private double result;
+    private double result = 0.0;
+    private List<Double> results;
 
+    // 생성자를 통해 results 초기화
+    public Calculator() {
+        this.results = new ArrayList<>();
+    }
     public double getResult() {
         return this.result;
     }
 
     public void setResult(double res) {
         this.result = res;
+    }
+
+    public List<Double> getResults() {
+        return results;
     }
     public void calculate(int num1, int num2, char operator) {
 
@@ -34,15 +44,16 @@ public class Calculator {
             default:
                 throw new IllegalArgumentException("잘못된 연산자입니다.");
         }
+
+        this.results.add(this.result);
     }
 
-    public List<Double> removeResult(List<Double> array) {
-        array.remove(0);
-        return array;
+    public void removeResult() {
+        this.results.remove(0);
     }
 
-    public void inquiryResults(List<Double> array) {
-        for (double element : array) {
+    public void inquiryResults() {
+        for (double element : this.results) {
             System.out.println(element);
         }
     }
