@@ -1,9 +1,16 @@
 package calculator;
 
 public class Calculator {
-    double result;
+    private double result;
 
-    public double calculate(int num1, int num2, char operator) {
+    public double getResult() {
+        return this.result;
+    }
+
+    public void setResult(double res) {
+        this.result = res;
+    }
+    public void calculate(int num1, int num2, char operator) {
 
         switch (operator) {
             case '+':
@@ -25,7 +32,6 @@ public class Calculator {
             default:
                 throw new IllegalArgumentException("잘못된 연산자입니다.");
         }
-        return this.result;
     }
 }
 
