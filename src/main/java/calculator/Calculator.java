@@ -40,5 +40,11 @@ public class Calculator {
         array.remove(0);
         return array;
     }
+
+    public void inquiryResults(List<Double> array) {
+        for (double element : array) {
+            System.out.println(element);
+        }
+    }
 }
 
