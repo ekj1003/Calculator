@@ -1,5 +1,7 @@
 package calculator;
 
+import java.util.List;
+
 public class Calculator {
     private double result;
 
@@ -32,6 +34,11 @@ public class Calculator {
             default:
                 throw new IllegalArgumentException("잘못된 연산자입니다.");
         }
+    }
+
+    public List<Double> removeResult(List<Double> array) {
+        array.remove(0);
+        return array;
     }
 }
 

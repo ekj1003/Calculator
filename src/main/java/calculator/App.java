@@ -30,7 +30,7 @@ public class App {
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             String removeFlag = sc.nextLine();
             if (removeFlag.equals("remove") && !resArr.isEmpty()) {
-                resArr.remove(0);
+                resArr = calculator.removeResult(resArr);
             }
 
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquire 입력 시 조회)");
