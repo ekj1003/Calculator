@@ -7,11 +7,14 @@ public class ArithmeticCalculator extends Calculator {
     MultiplyOperator multiplyOperator;
     DivideOperator divideOperator;
 
+    ModOperator modOperator;
+
     public ArithmeticCalculator () {
         this.addOperator = new AddOperator();
         this.subtractOperator = new SubtractOperator();
         this.multiplyOperator = new MultiplyOperator();
         this.divideOperator = new DivideOperator();
+        this.modOperator = new ModOperator();
     }
     public double getResult() {
         return this.result;
@@ -34,6 +37,9 @@ public class ArithmeticCalculator extends Calculator {
                 break;
             case '/':
                 this.result = divideOperator.operate(num1, num2);
+                break;
+            case '%':
+                this.result = modOperator.operate(num1, num2);
                 break;
             default:
                 throw new IllegalArgumentException("잘못된 연산자입니다.");
