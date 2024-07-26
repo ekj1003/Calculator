@@ -5,6 +5,7 @@ import java.util.*;
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        // calculator class 선언
         Calculator calculator = new Calculator();
         List<Double> resArr = new ArrayList<>();
 
@@ -17,6 +18,7 @@ public class App {
             System.out.print("사칙연산 기호를 입력하세요: "); // +, -, *, /
             char operator = sc.next().charAt(0);
 
+            // Calculator 클래스의 calculate 메소드 사용하여 연산
             double result = calculator.calculate(num1, num2, operator);
             resArr.add(result);
 
