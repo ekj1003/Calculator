@@ -2,7 +2,17 @@ package calculator;
 
 public class ArithmeticCalculator extends Calculator {
     private double result;
+    AddOperator addOperator;
+    SubtractOperator subtractOperator;
+    MultiplyOperator multiplyOperator;
+    DivideOperator divideOperator;
 
+    public ArithmeticCalculator () {
+        this.addOperator = new AddOperator();
+        this.subtractOperator = new SubtractOperator();
+        this.multiplyOperator = new MultiplyOperator();
+        this.divideOperator = new DivideOperator();
+    }
     public double getResult() {
         return this.result;
     }
@@ -14,20 +24,16 @@ public class ArithmeticCalculator extends Calculator {
     public void calculate(int num1, int num2, char operator) {
         switch (operator) {
             case '+':
-                this.result = num1 + num2;
+                this.result = addOperator.operate(num1, num2);
                 break;
             case '-':
-                this.result = num1 - num2;
+                this.result = subtractOperator.operate(num1, num2);
                 break;
             case '*':
-                this.result = num1 * num2;
+                this.result = multiplyOperator.operate(num1, num2);
                 break;
             case '/':
-                if (num2 == 0) {
-                    throw new ArithmeticException("0으로 나눌 수 없습니다.");
-                } else {
-                    this.result = (double) num1 / num2;
-                }
+                this.result = divideOperator.operate(num1, num2);
                 break;
             default:
                 throw new IllegalArgumentException("잘못된 연산자입니다.");
