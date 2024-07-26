@@ -1,9 +1,10 @@
 package calculator;
 
 public class Calculator {
+    double result;
 
     public double calculate(int num1, int num2, char operator) {
-        double result;
+
         switch (operator) {
             case '+':
                 result = num1 + num2;
