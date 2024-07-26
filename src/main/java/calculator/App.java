@@ -19,7 +19,8 @@ public class App {
             char operator = sc.next().charAt(0);
 
             // Calculator 클래스의 calculate 메소드 사용하여 연산
-            double result = calculator.calculate(num1, num2, operator);
+            calculator.calculate(num1, num2, operator);
+            double result = calculator.getResult();
             resArr.add(result);
 
             System.out.println("결과: " + result);
