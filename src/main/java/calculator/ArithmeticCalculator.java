@@ -25,20 +25,21 @@ public class ArithmeticCalculator extends Calculator {
     }
 
     public void calculate(int num1, int num2, char operator) {
-        switch (operator) {
-            case '+':
+        OperatorType operatorType = OperatorType.fromOperator(operator);
+        switch (operatorType) {
+            case ADD:
                 this.result = addOperator.operate(num1, num2);
                 break;
-            case '-':
+            case SUB:
                 this.result = subtractOperator.operate(num1, num2);
                 break;
-            case '*':
+            case MUL:
                 this.result = multiplyOperator.operate(num1, num2);
                 break;
-            case '/':
+            case DIV:
                 this.result = divideOperator.operate(num1, num2);
                 break;
-            case '%':
+            case MOD:
                 this.result = modOperator.operate(num1, num2);
                 break;
             default:
