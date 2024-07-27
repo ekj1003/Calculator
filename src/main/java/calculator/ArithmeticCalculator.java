@@ -1,21 +1,21 @@
 package calculator;
 
-public class ArithmeticCalculator extends Calculator {
+public class ArithmeticCalculator<T extends Number> extends Calculator {
     private double result;
-    AddOperator addOperator;
-    SubtractOperator subtractOperator;
-    MultiplyOperator multiplyOperator;
-    DivideOperator divideOperator;
+    AddOperator<T> addOperator;
+    SubtractOperator<T> subtractOperator;
+    MultiplyOperator<T> multiplyOperator;
+    DivideOperator<T> divideOperator;
+    ModOperator<T> modOperator;
 
-    ModOperator modOperator;
-
-    public ArithmeticCalculator () {
-        this.addOperator = new AddOperator();
-        this.subtractOperator = new SubtractOperator();
-        this.multiplyOperator = new MultiplyOperator();
-        this.divideOperator = new DivideOperator();
-        this.modOperator = new ModOperator();
+    public ArithmeticCalculator() {
+        this.addOperator = new AddOperator<>();
+        this.subtractOperator = new SubtractOperator<>();
+        this.multiplyOperator = new MultiplyOperator<>();
+        this.divideOperator = new DivideOperator<>();
+        this.modOperator = new ModOperator<>();
     }
+
     public double getResult() {
         return this.result;
     }
@@ -24,8 +24,9 @@ public class ArithmeticCalculator extends Calculator {
         this.result = result;
     }
 
-    public void calculate(int num1, int num2, char operator) {
+    public void calculate(T num1, T num2, char operator) {
         OperatorType operatorType = OperatorType.fromOperator(operator);
+
         switch (operatorType) {
             case ADD:
                 this.result = addOperator.operate(num1, num2);
