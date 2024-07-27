@@ -1,5 +1,8 @@
 package calculator;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class ArithmeticCalculator<T extends Number> extends Calculator {
     private double result;
     AddOperator<T> addOperator;
@@ -48,5 +51,18 @@ public class ArithmeticCalculator<T extends Number> extends Calculator {
         }
 
         this.results.add(this.result);
+    }
+
+    // 입력받은 값보다 큰 결과를 출력
+    public void printResultsGreater(double value) {
+        List<Double> greaterResults = this.results.stream()
+                .filter(result -> result > value)
+                .collect(Collectors.toList());
+
+        if (greaterResults.isEmpty()) {
+            System.out.println("입력한 값보다 큰 결과가 없습니다.");
+        } else {
+            System.out.println("입력한 값보다 큰 결과: " + greaterResults);
+        }
     }
 }

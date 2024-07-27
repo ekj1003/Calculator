@@ -1,6 +1,6 @@
 package calculator;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class App {
     public static void main(String[] args) {
@@ -10,7 +10,7 @@ public class App {
         int menu;
 
         while (true) {
-            System.out.println("메뉴를 선택하세요(1: 원넓이 계산, 2:사칙연산).");
+            System.out.println("메뉴를 선택하세요(1: 원넓이 계산, 2: 사칙연산, 3: 저장된 연산 결과 조회).");
             menu = sc.nextInt();
             sc.nextLine(); // 개행문자 제거
 
@@ -31,6 +31,7 @@ public class App {
                 System.out.print("더 계산하시겠습니까? (exit 입력 시 종료): ");
                 String flagExit = sc.nextLine();
                 if (flagExit.equals("exit")) break;
+
             } else if (menu == 2) {
                 System.out.print("첫 번째 숫자를 입력하세요: ");
                 double num1 = sc.nextDouble();
@@ -59,6 +60,17 @@ public class App {
                 if (inquiryFlag.equals("inquire")) {
                     arithmeticCalculator.inquiryResults();
                 }
+
+                System.out.print("더 계산하시겠습니까? (exit 입력 시 종료): ");
+                String flagExit = sc.nextLine();
+                if (flagExit.equals("exit")) break;
+
+            } else if (menu == 3) {
+                System.out.print("조회할 값보다 큰 결과를 출력하려면 기준 값을 입력하세요: ");
+                double threshold = sc.nextDouble();
+                sc.nextLine(); // 개행문자 제거
+
+                arithmeticCalculator.printResultsGreater(threshold);
 
                 System.out.print("더 계산하시겠습니까? (exit 입력 시 종료): ");
                 String flagExit = sc.nextLine();
