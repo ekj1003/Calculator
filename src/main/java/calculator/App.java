@@ -1,11 +1,10 @@
 package calculator;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        // 각각의 계산기 선언
-        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator();
+        ArithmeticCalculator<Number> arithmeticCalculator = new ArithmeticCalculator<>();
         CircleCalculator circleCalculator = new CircleCalculator();
         Scanner sc = new Scanner(System.in);
         int menu;
@@ -34,18 +33,17 @@ public class App {
                 if (flagExit.equals("exit")) break;
             } else if (menu == 2) {
                 System.out.print("첫 번째 숫자를 입력하세요: ");
-                int num1 = sc.nextInt();
+                double num1 = sc.nextDouble();
                 sc.nextLine(); // 개행문자 제거
 
                 System.out.print("두 번째 숫자를 입력하세요: ");
-                int num2 = sc.nextInt();
+                double num2 = sc.nextDouble();
                 sc.nextLine(); // 개행문자 제거
 
                 System.out.print("사칙연산 기호를 입력하세요: "); // +, -, *, /
                 char operator = sc.next().charAt(0);
                 sc.nextLine(); // 개행문자 제거
 
-                // ArithmeticCalculator 클래스의 calculate 메소드 사용하여 연산
                 arithmeticCalculator.calculate(num1, num2, operator);
 
                 System.out.println("결과: " + arithmeticCalculator.getResult());
