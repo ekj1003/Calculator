@@ -369,7 +369,8 @@ public class App {
         /* 반복문 종료 */
     }
 }
-​```
+```
+
 6. Calculator 인스턴스를 생성(new)할 때 생성자를 통해 연산 결과를 저장하고 있는 컬렉션 필드가 초기화 되도록 수정합니다.
 ```java
 public class Calculator {
